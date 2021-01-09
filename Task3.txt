@@ -1,0 +1,41 @@
+Advantages of unit testing
+
+Unit tests are written to check the functionality of the smallest code component such as a method. 
+Simple inputs should return the expected (simple) outputs. Since unit tests are only possible when the 
+code itself is written in small modules, the developer is forced to write well structured code.
+If every functionality is covered in a unit test it is easier to add new code and to quickly discover
+where the new implementation might run into an exception. This ensures that everything still works as before
+the change.
+
+
+Unit tests vs. Integration tests
+
+When different developers work on different features they might start on the same code base but then divert into
+different directions and make changes in different classes or even on the same code lines. This would mostly end 
+in merge conflicts that need to bes solved manually. To ensure that all the changes
+from different branches also work together, it is important to do integration tests. 
+This is usually done after the merging of the branches in a common environment.
+
+
+Positive vs. Negative testing
+
+Positive testing is the intuitive way of writing tests when one has implemented a feature. Its purpose is to test the functionality
+in the expected way. On the other hand there might be edge cases where the code will run into an error. To ensure that exceptions 
+are caught so that e.g. user friendly error messages can be logged, one has to anticipate these cases and write tests that provoke 
+these exceptions. In a negative test one can then test whether the exception is thrown as expected when given certain inputs.
+
+
+
+Unit tests and Integration tests in CI/CD processes
+
+Unit tests would be the foundation of all the other tests. Only when the test coverage of the code has reached a certain level, developers
+will feel confident to do automatically merge their changes into the master branch.Also there is the need to automate the execution of all unit tests
+after the integration. Continous integration would mean, that a merge of two branches will automatically follow after all tests passed.
+The next step would be to deploy the changes into the next (test-) environment after the successful integration, which is called continous
+deployment. If the change is also automatically being released to the end user after that, then it's called continous delivery.
+
+
+Further automation steps
+
+Besides a version control system one would need a tool that provides pipelines for the automation of the steps described above.
+This would make it easier for the developer to test/deploy/release by clicking on a button.
